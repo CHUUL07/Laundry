@@ -1,0 +1,8 @@
+ayo broo mulai membuat webite ini dari phase 1 aja dulu dan inget yaa. selalu pakai pedoman dan referensi @file:Planning.md dan @file:PRD.md (fokus phase 1 aja dulu)
+
+===
+
+coba croschek ulang sekali lagi broo apakah semua code ini udah benar-benar sesuai dengan @file:Planning.md   dan @file:PRD.md   pada phase 1 nya? (fokus pada phase 1 dulu)
+
+
+===

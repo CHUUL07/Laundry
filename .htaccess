@@ -1,0 +1,10 @@
+Options -Indexes
+RewriteEngine On
+
+# Redirect all requests to index.php (Front Controller)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# Block direct access to app/ directory
+RewriteRule ^app/ - [F,L]

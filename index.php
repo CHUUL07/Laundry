@@ -22,8 +22,20 @@ $segment3 = $parts[2] ?? '';  // e.g. '5' (ID)
 //  ROUTER
 // =============================================
 
+// Landing page (public) — shown for non-authenticated users
+if ($segment1 === '') {
+    if (isset($_SESSION['admin_id'])) {
+        // Already logged in? Go to dashboard
+        header('Location: /laundry-in/dashboard');
+        exit;
+    }
+    require_once __DIR__ . '/app/Controllers/LandingController.php';
+    (new LandingController())->index();
+    exit;
+}
+
 // Auth routes
-if ($segment1 === '' || $segment1 === 'login') {
+if ($segment1 === 'login') {
     require_once __DIR__ . '/app/Controllers/AuthController.php';
     $controller = new AuthController();
 

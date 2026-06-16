@@ -18,7 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.overflow = "";
   }
 
-  hamburger && hamburger.addEventListener("click", openSidebar);
+  function toggleSidebar() {
+    if (sidebar && sidebar.classList.contains("open")) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  }
+
+  hamburger && hamburger.addEventListener("click", toggleSidebar);
   overlay && overlay.addEventListener("click", closeSidebar);
 
   // Close on nav item click (mobile UX)

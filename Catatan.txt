@@ -19,3 +19,50 @@ ada beberapa koreksi nih broo yang harus dibenerin:
 
 
 sisanya udah bagus dan oke banget, jangan diubah-ubah. inget yaa jangan merubah apa yang tidak semestinya dirubah
+
+===
+
+oke ini ada beberapa koreksi lagi broo:
+
+1. backround pada landingpage awal yang 'http://localhost:8081/laundry-in' itu kenapa headernya yang logo 'Laundry-IN' tidak di pojok kiri atas dan tombol darkmode dan lightmode serta tombol admin berada di pojok kanan atas yaa? ini yang membuat tidak konsisten, yah intinya ini tentang responsive lah yaa saat di pc, leptop, tablet, hp intinya logo 'Laundry-IN' berada di pojok kanan ats header sedangkan tombol darkmode dan lightmode serta tombol admin itu berada di pojok kanan atas di dalam header broo (jadi sejajar gitu loh broo, tapi saling menjauhi ada yang di kiri dan adayang di kanan). lalu untuk tombol 'Beranda' lalu 'Layanan' lalu 'Tentang' itu udh bener berada di tengah aja tapi aku merasa kurang efek dan kenapa yang 'Beranda' itu ada kotak warna hijaunya nah itu hilangin aja jadi kalua user atau admin (intinya siapa aja yang membuka landingpage ini) jika crusor ada di tombol 'Beranda' atau 'Layanan' lalu 'Tentang' itu jangan lupa ditambahin hover kayak efek underskor broo (efek garis Bawah '_') biar keren dan ga usah tuh ada kotak warna hijau, nah warna hijaunya itu jadi efek underskor (efek garis Bawah '_') nah jika udh di klik maka underskor (garis Bawah '_') itu tetep barada di bawh tulisan button 'Beranda' atau 'Layanan' lalu 'Tentang'. sampai sini paham broo?
+
+
+2. itu pada tulisan 'Kelola Layanan Laundry Lebih Mudah
+Laundry-IN membantu Anda mengelola berbagai jenis layanan laundry secara digital — cepat, rapi, dan profesional.' kan bawhanya ada button dua biji yang pertama 'Lihat Layanan' dan yang kedua 'Masuk Admin'. nah yang button kedua 'Masuk Admin' itu hapus aja broo karna kan udh ada di header. nah juag sebelah kanannya kan ada kotak ya broo itu aku mau kamu ganti jadi gambar laundry broo. aku udh ppunya filenya tuh @Gambar-Laundry.png tinggal kamu ubah dikit itu kotaknya yang bisa di masukkan gambar. eh yaa itu kan aku meletakkan file @Gambar-Laundry.png diluar, itu tolong kamu buatkan jika belum ada atau pindahkan dika udah ada ke dalam file yang semestinya (jadi file itu tuh yang emang smestinya atau defauldnya untuk menyimpan gambar)
+
+
+3. lalu pada 'Mengapa Laundry-IN?
+Solusi digital untuk mengelola layanan laundry Anda dengan lebih efisien.' nah itu kan juga ada 3 kotak ya kan yang pertama 'Data Terpusat
+Semua data layanan tersimpan rapi di satu tempat, mudah diakses kapan saja.' lalu yang kedua 'Aman & Terpercaya
+Data aman dengan sistem soft-delete dan perlindungan CSRF.' lalu yang ketiga 'Responsive Design
+Akses dari mana saja — desktop, tablet, maupun smartphone.' itu diatas textnya tpi masih dalam satu kotak kenapa cumin kamu kasi bulat warna hijau, kuning, biru? aku mau itu diubah menjadi icon broo (inget yaa icon, bukan emoticon. di php harusnya ada kan walaupun perlu di install dulu juga gapapa)
+
+
+4. lalu pada 'http://localhost:8081/laundry-in/login' ga ada tombol kayak Kembali gitu broo yang mengarah ke 'http://localhost:8081/laundry-in'? masak harus ngetik menual di dan harus hapus sendiri itu '/login' nya? 
+
+
+5. pada 'http://localhost:8081/laundry-in' itu saat aku mode tablet dan hp kenapa muncul humberger tapi saat aku klik itu ga memunculkan apapun yaa? malah 'X' doang broo? itu gimana coba maksutnya? juga kemana itu tombol 'Beranda' lalu 'Layanan' lalu 'Tentang' .tolong diperbaiki.
+
+
+sisanya udah bagus dan oke banget, jangan diubah-ubah. inget yaa jangan merubah apa yang tidak semestinya dirubah
+
+===
+
+ada lagi nih broo beberapa koreksi:
+
+1. pada 'http://localhost:8081/laundry-in' kenapa di headernya masih belum bener broo pada efek underskor (efek garis Bawah '_') nya? itu padahal aku udah klik 'Layanan' di header dan sedang berada di menu 'Layanan' tapi underskor (efek garis Bawah '_') nya kok masih di 'Beranda' ? harusnya kan nerubah broo yang underskor (efek garis Bawah '_') jadi di 'Layanan' dan text berwarna hijaunya juga di 'Layanan'. tapi kenapa masih di 'Beranda' semua itu efek-efeknya? tolong di perbaiki yaa
+
+
+2. pada 'http://localhost:8081/laundry-in' yang 'Tentang
+Mengapa Laundry-IN?
+Solusi digital untuk mengelola layanan laundry Anda dengan lebih efisien.' aku minta ke tiga kotak itu bukan malah warna hijau, kuning, biru atau warna apalah itu. aku itu ingin itu diubah menjadi ICON BROO ICON tapi kok malah masih warna. nah kamu itu menyesuaikan broo icon yang cocok untuk masing-masing kotak itu apa kan ada 3 kotak yang pertama 'Data Terpusat
+Semua data layanan tersimpan rapi di satu tempat, mudah diakses kapan saja.' lalu yang kedua 'Aman & Terpercaya
+Data aman dengan sistem soft-delete dan perlindungan CSRF.' lalu yang ketiga 'Responsive Design
+Akses dari mana saja — desktop, tablet, maupun smartphone.' nah tu kamu masing-masing carikan icon yang cocok dengan setiap kotak itu tuh apaa. mudeng maksutku broo?
+
+
+sisanya udah bagus dan oke banget, jangan diubah-ubah. inget yaa jangan merubah apa yang tidak semestinya dirubah
+
+===
+
+oke sekarnag yang perlu direvisi itu file @README.md broo aku itu udah ada templatenya broo, tinggal menyesuaikan aja sama punyaku. btw itu fotonya ada di 'public\assets\images\1-Beranda.png' lalu 'public\assets\images\2-Layanan.png' lalu 'public\assets\images\3-Tentang.png' lalu 'public\assets\images\4-Login-Admin.png' lalu 'public\assets\images\5-Dashboard-Admin.png' lalu 'public\assets\images\6-Jenis-Layanan-Admin.png' lalu 'public\assets\images\7-Arsip-Layanan-Admin.png'

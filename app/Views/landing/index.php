@@ -1,0 +1,1 @@
+<!-- Landing page content is rendered directly in layouts/landing.php -->

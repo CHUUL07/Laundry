@@ -1,4 +1,8 @@
 <div class="auth-card">
+    <a href="/laundry-in/" class="btn btn-ghost btn-sm" style="margin-bottom: var(--space-4);">
+        <i class="ph-bold ph-arrow-left"></i>
+        Kembali ke Beranda
+    </a>
     <div class="auth-brand">
         <div class="auth-brand-icon">
             <i class="ph-bold ph-washing-machine"></i>

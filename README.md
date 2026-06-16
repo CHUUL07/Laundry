@@ -26,27 +26,31 @@ Web application untuk mengelola jenis layanan pada bisnis laundry berbasis web.
 
 ## Halaman
 
-| Route                          | Deskripsi                        |
-| ------------------------------ | -------------------------------- |
-| `/login`                       | Halaman masuk admin              |
-| `/dashboard`                   | Dashboard dengan ringkasan data  |
-| `/layanan`                     | Daftar layanan aktif             |
-| `/layanan/create`              | Tambah layanan baru              |
-| `/layanan/edit/{id}`           | Edit layanan                     |
-| `/layanan/archive`             | Arsip layanan yang dihapus       |
+| Route                | Deskripsi                       |
+| -------------------- | ------------------------------- |
+| `/login`             | Halaman masuk admin             |
+| `/dashboard`         | Dashboard dengan ringkasan data |
+| `/layanan`           | Daftar layanan aktif            |
+| `/layanan/create`    | Tambah layanan baru             |
+| `/layanan/edit/{id}` | Edit layanan                    |
+| `/layanan/archive`   | Arsip layanan yang dihapus      |
 
 ## Setup
 
 1. **Clone repository** ke direktori web server (`htdocs/laundry-in/`):
+
    ```bash
    git clone https://github.com/CHUUL07/Laundry.git
    ```
 
 2. **Copy environment file:**
+
    ```bash
    cp .env.example .env
    ```
+
    Sesuaikan kredensial database di `.env`:
+
    ```
    DB_HOST=localhost
    DB_PORT=3306
@@ -56,11 +60,13 @@ Web application untuk mengelola jenis layanan pada bisnis laundry berbasis web.
    ```
 
 3. **Import struktur database:**
+
    ```bash
    mysql -u root -p kampusin_db < docs/kampusin_db_structure.sql
    ```
 
 4. **Import seed data (opsional):**
+
    ```bash
    mysql -u root -p kampusin_db < docs/kampusin_db_seed.sql
    ```
@@ -98,10 +104,10 @@ laundry-in/
 
 ## Keamanan
 
-| Threat              | Mitigation                                        |
-| ------------------- | ------------------------------------------------- |
-| SQL Injection       | 100% PDO prepared statements dengan bound params  |
-| XSS                 | Semua output via `htmlspecialchars()`             |
-| CSRF                | Token CSRF di setiap form POST                    |
-| Session Hijacking   | `session_regenerate_id()` saat login              |
-| Password            | Bcrypt hash via `password_hash()` / `password_verify()` |
+| Threat            | Mitigation                                              |
+| ----------------- | ------------------------------------------------------- |
+| SQL Injection     | 100% PDO prepared statements dengan bound params        |
+| XSS               | Semua output via `htmlspecialchars()`                   |
+| CSRF              | Token CSRF di setiap form POST                          |
+| Session Hijacking | `session_regenerate_id()` saat login                    |
+| Password          | Bcrypt hash via `password_hash()` / `password_verify()` |

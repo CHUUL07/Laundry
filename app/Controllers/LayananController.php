@@ -49,6 +49,10 @@ class LayananController
             $this->redirect('/layanan');
         }
 
+        if (!verify_csrf()) {
+            $this->redirect('/layanan/create', 'flash_error', 'Token CSRF tidak valid. Silakan coba lagi.');
+        }
+
         $data   = $this->sanitizeInput($_POST);
         $errors = $this->validate($data);
 
@@ -92,6 +96,10 @@ class LayananController
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             $this->redirect('/layanan');
+        }
+
+        if (!verify_csrf()) {
+            $this->redirect("/layanan/edit/{$id}", 'flash_error', 'Token CSRF tidak valid. Silakan coba lagi.');
         }
 
         $layanan = $this->model->findById($id);

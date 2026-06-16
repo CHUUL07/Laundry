@@ -6,3 +6,16 @@ coba croschek ulang sekali lagi broo apakah semua code ini udah benar-benar sesu
 
 
 ===
+
+ada beberapa koreksi nih broo yang harus dibenerin:
+
+1. saat mode dark mode emng oke bagus sih, tapi saat aku ubah ke mode light mode kenapa sidebar nya masih ikut dark mode yaa? harunya kan dia ikut sesuai user yang inginkan ya ga sih? kalua dark mode ya dark mode semua entah itu sidebar, footer, header, content, dll yah intinya jadi dark mode lah yaa, sedangkan kalua light mode ya semuanya bakal jadi light mode mulai dari sidebar, footer, header, content, dll yah intinya jadi light mode lah yaa. nah di website ini sekarang yang bermasalah sidebarnya broo, tolong dibenerin yaa.
+
+
+2. lalu itu kenapa nga ada kayak landingpage untuk user yaa? itu kan aku harus login dlu ya kan sebagai admin. nah user gimana untuk halaman awal? jadi tolong buatkan landingpage awal untuk user yang tidak login broo dan itu isinya memamerkan 'Jenis Layanan' yang udah diinputkan admin jadi bisa saling terhubung gitu broo (jangan lupa desain dan temanya samakan seperti @Planning.md dan @PRD.md jangan melenceng sedikitpun. saya ingin dia nyambung temanya)/ nah di landingpage ini tuh bagusnya di isi apa yaa selain menu 'Layanan' yang isinya itu 'Jenis Layanan' yang udh di inputkan admin (yang tersambung ke database xampp)? oh ya jangan lupa di header selain ada logo 'Laundry-IN' lalu menu 'Layanan' lalu 'Admin' ada apa lagi ya broo? (pastikan semuanya responsive bila website ini dibuka di p, leptop, tablet, hp yaa. dan juga untuk desain dan temanya pastikan nyambung sama @Planning.md dan @PRD.md)
+
+
+3. juga humberger yang jika diklik bakal bisa mengeluarkan sidebarnya dan yang diluar sidebar itu bakal jadi blur nya dan tombol darkmode dan lightmode tidak bekerja broo (kayak satu headernya itu yang tidak bekerja)
+
+
+sisanya udah bagus dan oke banget, jangan diubah-ubah. inget yaa jangan merubah apa yang tidak semestinya dirubah

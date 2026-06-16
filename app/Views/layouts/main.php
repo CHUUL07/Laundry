@@ -113,7 +113,7 @@ $adminUser   = $_SESSION['admin_username'] ?? 'Admin';
                     <nav class="topbar-breadcrumb" aria-label="Breadcrumb">
                         <a href="/laundry-in/dashboard">Beranda</a>
                         <?php if ($activePage !== 'dashboard'): ?>
-                            <i class="ph ph-caret-right" style="font-size:0.75rem;"></i>
+                            <i class="ph-bold ph-caret-right" style="font-size:0.75rem;"></i>
                             <span class="current"><?= htmlspecialchars($pageTitle) ?></span>
                         <?php endif; ?>
                     </nav>
@@ -168,13 +168,7 @@ $adminUser   = $_SESSION['admin_username'] ?? 'Admin';
             <div class="modal-actions">
                 <button class="btn btn-secondary" id="modal-cancel">Batal</button>
                 <form id="delete-form" method="POST">
-                    <?php
-                    // CSRF token in modal form
-                    if (!isset($_SESSION['csrf_token'])) {
-                        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-                    }
-                    ?>
-                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
                     <button type="submit" class="btn btn-danger" id="modal-confirm">
                         <i class="ph-bold ph-trash"></i>
                         Ya, Hapus

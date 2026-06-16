@@ -16,7 +16,8 @@ Dark-mode web application untuk manajemen katalog layanan laundry berbasis **Nat
 | 4   | Admin — Login         | ![Login Admin](public/assets/images/4-Login-Admin.png)           |
 | 5   | Admin — Dashboard     | ![Dashboard Admin](public/assets/images/5-Dashboard-Admin.png)   |
 | 6   | Admin — Jenis Layanan | ![Jenis Layanan](public/assets/images/6-Jenis-Layanan-Admin.png) |
-| 7   | Admin — Arsip         | ![Arsip Layanan](public/assets/images/7-Arsip-Layanan-Admin.png) |
+| 7   | Admin — Tambah        | ![Tambah Layanan](public/assets/images/7-Tambah-Admin.png)       |
+| 8   | Admin — Arsip         | ![Arsip Layanan](public/assets/images/8-Arsip-Layanan-Admin.png) |
 
 ## Stack
 

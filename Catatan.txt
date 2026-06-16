@@ -66,3 +66,6 @@ sisanya udah bagus dan oke banget, jangan diubah-ubah. inget yaa jangan merubah 
 ===
 
 oke sekarnag yang perlu direvisi itu file @README.md broo aku itu udah ada templatenya broo, tinggal menyesuaikan aja sama punyaku. btw itu fotonya ada di 'public\assets\images\1-Beranda.png' lalu 'public\assets\images\2-Layanan.png' lalu 'public\assets\images\3-Tentang.png' lalu 'public\assets\images\4-Login-Admin.png' lalu 'public\assets\images\5-Dashboard-Admin.png' lalu 'public\assets\images\6-Jenis-Layanan-Admin.png' lalu 'public\assets\images\7-Arsip-Layanan-Admin.png'
+
+
+sisanya udah bagus dan oke banget, jangan diubah-ubah. inget yaa jangan merubah apa yang tidak semestinya dirubah

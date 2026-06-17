@@ -194,17 +194,18 @@ laundry-in/
 │           ├── 2-Layanan.png       # Screenshot
 │           ├── 3-Tentang.png       # Screenshot
 │           ├── 4-Login-Admin.png   # Screenshot
-│           ├── 5-Dashboard-Admin.png  # Screenshot
+│           ├── 5-Dashboard-Admin.png     # Screenshot
 │           ├── 6-Jenis-Layanan-Admin.png # Screenshot
-│           └── 7-Arsip-Layanan-Admin.png # Screenshot
+│           └── 7-Tambah-Admin.png        # Screenshot
+│           └── 8-Arsip-Layanan-Admin.png # Screenshot
 │
 ├── docs/
 │   ├── PRD.md
 │   ├── Planning.md
-│   ├── kampusin_db_structure.sql   # Table structure export
-│   └── kampusin_db_seed.sql        # Seed data export
+│   ├── kampusin_db_structure.sql         # Table structure export
+│   └── kampusin_db_seed.sql              # Seed data export
 │
-└── vendor/                         # Composer dependencies (CodeIgniter 4)
+└── vendor/                               # Composer dependencies (CodeIgniter 4)
 ```
 
 ## Keamanan

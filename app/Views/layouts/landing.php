@@ -198,6 +198,19 @@ $activeNav  = $activeNav ?? 'beranda';
                         <?php if (!empty($item['deskripsi'])): ?>
                             <p class="landing-service-desc"><?= htmlspecialchars($item['deskripsi']) ?></p>
                         <?php endif; ?>
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                            <div style="margin-top: var(--space-3);">
+                                <form method="POST" action="/cart/add/<?= (int)$item['id'] ?>" style="display:inline;">
+                                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(generate_csrf_token()) ?>">
+                                    <input type="hidden" name="quantity" value="1">
+                                    <button type="submit" class="btn btn-primary btn-sm" style="width:100%;"
+                                        onclick="this.disabled=true; this.form.submit();">
+                                        <i class="ph-bold ph-shopping-cart-simple"></i>
+                                        Tambah ke Keranjang
+                                    </button>
+                                </form>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>

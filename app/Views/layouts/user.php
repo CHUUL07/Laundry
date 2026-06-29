@@ -135,6 +135,24 @@ $userNama   = $_SESSION['user_nama'] ?? 'User';
         </div>
     </header>
 
+    <!-- Flash Messages -->
+    <div style="max-width: var(--content-max-width); margin: 0 auto; padding: var(--space-4) var(--space-8) 0; width: 100%;">
+        <?php if (isset($_SESSION['flash_success'])): ?>
+            <div class="alert alert-success">
+                <i class="ph-bold ph-check-circle"></i>
+                <span><?= htmlspecialchars($_SESSION['flash_success']) ?></span>
+            </div>
+            <?php unset($_SESSION['flash_success']); ?>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['flash_error'])): ?>
+            <div class="alert alert-danger">
+                <i class="ph-bold ph-warning-circle"></i>
+                <span><?= htmlspecialchars($_SESSION['flash_error']) ?></span>
+            </div>
+            <?php unset($_SESSION['flash_error']); ?>
+        <?php endif; ?>
+    </div>
+
     <!-- Page Content -->
     <main class="user-content">
         <?= $content ?? '' ?>

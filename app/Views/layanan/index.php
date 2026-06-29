@@ -57,19 +57,6 @@
                             </td>
                             <td>
                                 <div class="table-actions">
-                                    <form method="POST"
-                                        action="/cart/add/<?= (int)$item['id'] ?>"
-                                        style="display:inline;">
-                                        <input type="hidden" name="csrf_token"
-                                            value="<?= htmlspecialchars(generate_csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
-                                        <input type="hidden" name="quantity" value="1">
-                                        <button type="submit"
-                                            class="btn btn-success btn-sm"
-                                            onclick="this.disabled=true; this.form.submit();"
-                                            title="Tambah ke Keranjang">
-                                            <i class="ph-bold ph-shopping-cart-simple"></i>
-                                        </button>
-                                    </form>
                                     <a href="/layanan/edit/<?= $item['id'] ?>"
                                         class="btn btn-ghost btn-sm"
                                         title="Edit layanan">

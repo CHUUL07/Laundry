@@ -64,6 +64,7 @@ class PesananController
             'activePage' => 'pesanan',
             'pesanan'   => $pesanan,
             'detail'    => $detail,
+            'flash'     => $this->getFlash(),
         ]);
     }
 
@@ -202,6 +203,18 @@ class PesananController
         include __DIR__ . '/../Views/' . $view . '.php';
         $content = ob_get_clean();
         require_once __DIR__ . '/../Views/layouts/main.php';
+    }
+
+    private function getFlash(): array
+    {
+        $flash = [];
+        foreach (['flash_success', 'flash_error'] as $key) {
+            if (isset($_SESSION[$key])) {
+                $flash[$key] = $_SESSION[$key];
+                unset($_SESSION[$key]);
+            }
+        }
+        return $flash;
     }
 
     private function redirect(string $path, string $flashKey = '', string $flashMsg = ''): void

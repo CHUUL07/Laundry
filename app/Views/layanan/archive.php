@@ -1,6 +1,6 @@
 <div class="page-header">
     <div class="flex items-center gap-3 mb-2">
-        <a href="/laundry-in/layanan" class="btn btn-ghost btn-sm">
+        <a href="/layanan" class="btn btn-ghost btn-sm">
             <i class="ph-bold ph-arrow-left"></i>
             Kembali ke Layanan
         </a>
@@ -49,9 +49,9 @@
                             </td>
                             <td>
                                 <div class="table-actions">
-                                    <form method="POST" action="/laundry-in/layanan/restore/<?= $item['id'] ?>">
-                                        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
-                                        <button type="submit" class="btn btn-success btn-sm" title="Pulihkan layanan">
+                                    <form method="POST" action="/layanan/restore/<?= $item['id'] ?>">
+                                        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(generate_csrf_token()) ?>">
+                                        <button type="submit" class="btn btn-success btn-sm" title="Pulihkan layanan" onclick="this.disabled=true; this.form.submit();">
                                             <i class="ph-bold ph-arrow-counter-clockwise"></i>
                                             Pulihkan
                                         </button>

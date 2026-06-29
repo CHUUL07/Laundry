@@ -49,7 +49,7 @@ class LayananController
             $this->redirect('/layanan');
         }
 
-        if (!verify_csrf()) {
+        if (!validate_csrf()) {
             $this->redirect('/layanan/create', 'flash_error', 'Token CSRF tidak valid. Silakan coba lagi.');
         }
 
@@ -98,7 +98,7 @@ class LayananController
             $this->redirect('/layanan');
         }
 
-        if (!verify_csrf()) {
+        if (!validate_csrf()) {
             $this->redirect("/layanan/edit/{$id}", 'flash_error', 'Token CSRF tidak valid. Silakan coba lagi.');
         }
 
@@ -135,7 +135,7 @@ class LayananController
             $this->redirect('/layanan');
         }
 
-        if (!verify_csrf()) {
+        if (!validate_csrf()) {
             $this->redirect('/layanan', 'flash_error', 'Token CSRF tidak valid. Silakan coba lagi.');
         }
 
@@ -181,7 +181,7 @@ class LayananController
             $this->redirect('/layanan/archive');
         }
 
-        if (!verify_csrf()) {
+        if (!validate_csrf()) {
             $this->redirect('/layanan/archive', 'flash_error', 'Token CSRF tidak valid. Silakan coba lagi.');
         }
 
@@ -247,7 +247,11 @@ class LayananController
         if ($flashKey && $flashMsg) {
             $_SESSION[$flashKey] = $flashMsg;
         }
-        header("Location: /laundry-in{$path}");
+        header("Location: {$path}");
         exit;
     }
+
+    // ----------------------------------------------------------------
+    // EXPORT PDF — Dipindahkan ke PesananController (Phase I v3.0)
+    // ----------------------------------------------------------------
 }

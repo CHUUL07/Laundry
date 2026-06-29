@@ -1,6 +1,6 @@
 <div class="page-header">
     <div class="flex items-center gap-3 mb-2">
-        <a href="/laundry-in/layanan" class="btn btn-ghost btn-sm">
+        <a href="/layanan" class="btn btn-ghost btn-sm">
             <i class="ph-bold ph-arrow-left"></i>
             Kembali
         </a>
@@ -11,8 +11,8 @@
 
 <div class="card" style="max-width: 720px;">
     <div class="card-body">
-        <form method="POST" action="/laundry-in/layanan/update/<?= $layanan['id'] ?>" novalidate>
-            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
+        <form method="POST" action="/layanan/update/<?= $layanan['id'] ?>" novalidate>
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(generate_csrf_token()) ?>">
 
             <!-- Nama Layanan -->
             <div class="form-group">
@@ -139,11 +139,11 @@
 
             <!-- Form Actions -->
             <div class="flex items-center gap-3" style="margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border);">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.form.submit();">
                     <i class="ph-bold ph-floppy-disk"></i>
                     Perbarui Layanan
                 </button>
-                <a href="/laundry-in/layanan" class="btn btn-secondary">Batal</a>
+                <a href="/layanan" class="btn btn-secondary">Batal</a>
             </div>
         </form>
     </div>

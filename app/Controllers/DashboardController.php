@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../Models/LayananModel.php';
+require_once __DIR__ . '/../Models/PelangganModel.php';
 require_once __DIR__ . '/../Helpers/auth.php';
 
 class DashboardController
@@ -16,14 +17,18 @@ class DashboardController
     {
         requireAuth();
 
+        $pelangganModel = new PelangganModel();
+
         $data = [
-            'pageTitle'      => 'Dashboard',
-            'activePage'     => 'dashboard',
-            'totalAktif'     => $this->layananModel->countActive(),
-            'totalExpress'   => $this->layananModel->countByKategori('express'),
-            'totalReguler'   => $this->layananModel->countByKategori('reguler'),
-            'totalArsip'     => $this->layananModel->countArchived(),
-            'recentLayanan'  => $this->layananModel->recent(5),
+            'pageTitle'          => 'Dashboard',
+            'activePage'         => 'dashboard',
+            'totalAktif'         => $this->layananModel->countActive(),
+            'totalExpress'       => $this->layananModel->countByKategori('express'),
+            'totalReguler'       => $this->layananModel->countByKategori('reguler'),
+            'totalArsip'         => $this->layananModel->countArchived(),
+            'recentLayanan'      => $this->layananModel->recent(5),
+            'totalPelanggan'     => $pelangganModel->countActive(),
+            'totalPelangganArsip' => $pelangganModel->countArchived(),
         ];
 
         $this->render('dashboard/index.php', $data);

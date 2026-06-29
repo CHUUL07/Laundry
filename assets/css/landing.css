@@ -131,6 +131,48 @@
   gap: var(--space-2);
 }
 
+.landing-header-cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+
+.landing-header-cart:hover {
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+}
+
+.landing-header-cart .badge-counter {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  font-size: 0.6rem;
+  padding: 0 4px;
+}
+
+.landing-mobile-user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border-bottom: 1px solid var(--color-border);
+}
+
 .landing-theme-toggle {
   width: 36px;
   height: 36px;
@@ -697,7 +739,4 @@
   }
 }
 
-/* Extra spacing variable for sections */
-:root {
-  --space-16: 6rem;
-}
+/* --space-16 is now defined in variables.css */

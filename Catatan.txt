@@ -1,11 +1,59 @@
-ayo broo mulai membuat webite ini dari phase 1 aja dulu dan inget yaa. selalu pakai pedoman dan referensi @file:Planning.md dan @file:PRD.md (fokus phase 1 aja dulu)
+Baca dan pelajari seluruh fundamental project pada @PRD.md, @Planning.md, @Rules.md, dan @State.md.
+
+Tugas kamu sekarang: HANYA fokus pada Phase 1 berdasarkan @Planning.md. Patuhi seluruh standar penulisan kode dan arsitektur yang tertulis di @Rules.md. Dilarang keras memikirkan atau menyentuh fase selain Phase 1.
+
+SEBELUM MENULIS KODE APA PUN, buatlah rincian langkah demi langkah (step-by-step plan) tentang file apa saja yang akan kamu buat/modifikasi, dan jelaskan alur logikanya secara singkat untuk Phase 1 ini.
+
+Setelah memberikan rencana kerja tersebut, BERHENTI. Jangan mengeksekusi kode apa pun sampai saya membalas dengan kata 'APPROVE'.
 
 ===
 
-coba croschek ulang sekali lagi broo apakah semua code ini udah benar-benar sesuai dengan @file:Planning.md   dan @file:PRD.md   pada phase 1 nya? (fokus pada phase 1 dulu)
+Lakukan AUDIT MENYELURUH terhadap semua baris kode yang baru saja kamu selesaikan untuk Phase 1.
+
+Validasi kesesuaian fungsi dan fitur secara ketat dengan @PRD.md.
+
+Pastikan tidak ada satu pun langkah pengerjaan yang terlewat dari @Planning.md untuk Phase 1.
+
+Cek ulang struktur kode, penamaan variabel, dan arsitektur. Pastikan 100% mematuhi standar yang tertulis di @Rules.md.
+
+Jika kamu menemukan ketidaksesuaian, anomali, atau kode yang melanggar aturan, LANGSUNG PERBAIKI sekarang juga secara otonom tanpa perlu meminta izin.
+
+Jika dan HANYA JIKA semua kode sudah tervalidasi sempurna secara logika maupun aturan tertulis, barulah kamu update file @State.md dengan log penyelesaian Phase 1 secara detail dan hentikan pekerjaan.
+
 
 
 ===
+
+
+Baca dan pelajari seluruh fundamental project pada @PRD.md, @Planning.md, @Rules.md, @State.md, dan dokumen pembaruan krusial @Patch_Update_v3.md.
+
+ATURAN HIERARKI MUTLAK: Jika terdapat perbedaan atau konflik instruksi antara @PRD.md/@Planning.md dengan @Patch_Update_v2.md, maka instruksi di @Patch_Update_v2.md adalah SUMBER KEBENARAN TERTINGGI (Supreme Override) yang harus Anda ikuti.
+
+Tugas kamu sekarang: HANYA fokus pada phase A berdasarkan urutan di @Planning.md dan tambahannya di @Patch_Update_v2.md. Patuhi seluruh standar penulisan kode dan arsitektur yang tertulis di @Rules.md. Dilarang keras memikirkan atau menyentuh phase selain A .
+
+SEBELUM MENULIS KODE APA PUN, buatlah rincian langkah demi langkah (step-by-step plan) tentang file apa saja yang akan kamu buat/modifikasi, dan jelaskan alur logikanya secara singkat untuk phase A ini.
+
+Setelah memberikan rencana kerja tersebut, BERHENTI. Jangan mengeksekusi kode apa pun sampai saya membalas dengan kata 'APPROVE'.
+
+
+===
+
+
+Lakukan AUDIT MENYELURUH terhadap semua baris kode yang baru saja kamu selesaikan untuk phase A .
+
+Validasi kesesuaian fungsi dan fitur secara ketat dengan @PRD.md dan pembaruannya di @Patch_Update_v2.md.
+
+Pastikan tidak ada satu pun langkah pengerjaan yang terlewat dari @Planning.md maupun @Patch_Update_v2.md untuk phase A ini.
+
+Cek ulang struktur kode, penamaan variabel, integrasi library baru (seperti FlatLaf atau XChart), dan arsitektur. Pastikan 100% mematuhi standar yang tertulis di @Rules.md.
+
+Jika kamu menemukan ketidaksesuaian, anomali, kode yang tidak responsif, atau kode yang melanggar aturan, LANGSUNG PERBAIKI sekarang juga secara otonom tanpa perlu meminta izin.
+
+Jika dan HANYA JIKA semua kode sudah tervalidasi sempurna secara logika maupun aturan tertulis, barulah kamu update file @State.md dengan log penyelesaian phase A secara detail dan hentikan pekerjaan.
+
+
+===
+
 
 ada beberapa koreksi nih broo yang harus dibenerin:
 
@@ -69,3 +117,27 @@ oke sekarnag yang perlu direvisi itu file @README.md broo aku itu udah ada templ
 
 
 sisanya udah bagus dan oke banget, jangan diubah-ubah. inget yaa jangan merubah apa yang tidak semestinya dirubah
+
+===
+
+kalua laundry itu sebaiknya mending hanya login admin aja karna kan kalau orang laundry mesti langsung dating ke lokasi nga mungkin login-login kan yaa
+
+
+===
+
+
+perbaikan:
+
+1. pada sidebar dai admin 'http://localhost:8080/dashboard' itu harusnya entah itu saat darkmdoe maupun lightmode, itu mengikuti lah broo. kalua darkmode ya ikut gelap sendangkan kalua lightmode ya jadi terang backroundnya dan sebaliknya untuk tulisannya itu lawan warnanya. kenapa sekarang entah itu lightmode maupun darkmode sidebarnya masih tetep defuld ke darkmode yaa? tolong di perbaiki.
+
+2. itu mensurutku kebalik broo 'Keranjang' itu harusnya ada di user bukan di admin (logikanya mosoka dmin mesan jasanya dia sendiri?) nah harusnya kamu pindahkan itu di 'http://localhost:8080/' (desain dan layoutnya jangan ngawur ya broo, sesuaikan aja. inget jangan ngerusak UI/UX). nah yang di admin itu di ganti 'Pesanan' (jadi bukan 'Keranjang' tapi 'Pesanan'). itu gunanya itu untuk melihat user mesen apa aja. dan juga bisa memantaunya broo. oh yaa aku ingin bis membuat tingkatan broo 'Pesanan Diterima' lalu 'Pesanan Sedang Dibuat' lalu 'Pesanan Siap Diantar/Diambil' (oh ya ini sifatnya dinamis ya broo, menyesuaikan user pada saat di 'Keranjang' itu milih Diantar/Diambil. oh ya jangan lupa kasi pilihan yaa untuk 'Diantar/Diambil') lalu 'Pesanan Selesai'. nah itu bisa saling terhubung antara user dan admin broo (jadi ini kayaknya user dan admin emng harus buat halaamn login yaa, biar bisa memisahkan antar database setiap pesanan user). nah saat admin update pesanan jadi 'Pesanan Diterima' itu otomatis pada user juga lngsung ke update broo, begotupun saat 'Pesanan Sedang Dibuat' sampai 'Pesanan Selesai' itu bisa update real time saat itu juga. 
+
+3. nah untuk fitur yang 'Export PDF' itu menurutku di pindah aja broo ke admin - 'Pesanan'. jadi itu setiap ada user yang pesan dari 'Keranjang' bakal otomatis masuk langsung ke 'Pesanan' di admin. nah admin ini bisa update pesananan 'Pesanan Diterima' lalu 'Pesanan Sedang Dibuat' lalu 'Pesanan Siap Diantar/Diambil'(dinamis) lalu 'Pesanan Selesai' dan juga per pesanan itu bisa 'Export PDF' diaman PDF itu tuh truk pembeliannya broo. jadi kamu pikirkan layout untuk struk Laundry-IN ini broo. juga pastikan untuk bisa terhubung langsung ke printer jadi kamu siapkan tombol yang ngedirect ke printer secara otomatis. jadi admin bisa save struk dan bisa lngsung print struk pembelainnya. ini desainnya struk perlu di perhatikan broo. jangan lupa UI/UX websitenya juga sanget di perhatikan disini broo. jadi yang 'Export PDF' yang di 'Jenis Layanan' Hapus aja dan itu tombol 'Tambah Layanan' pindahkan keposisi semula broo berada di tempat 'Export PDF' berada itu harusnya (kan 'Export PDF' sudah di hapus pada 'Jenin Layanan' dan di pindah ke 'Pesanan').
+
+
+samapi sini paham amksutku nga broo? kalua paham coba jelaskan kesaya sini. apa saja yang kamu paham (Jangan ngoding dulu),
+
+
+===
+
+

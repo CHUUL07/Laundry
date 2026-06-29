@@ -49,7 +49,7 @@
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 700;
-  color: var(--sidebar-brand-text);
+  color: var(--color-text-primary);
   letter-spacing: -0.02em;
 }
 
@@ -153,7 +153,7 @@
 .sidebar-user-name {
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--sidebar-user-text);
+  color: var(--color-text-primary);
 }
 
 .sidebar-user-role {

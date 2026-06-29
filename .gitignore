@@ -48,6 +48,19 @@ _modules/*
 .php-version
 
 # Jetbrains editors (PHPStorm, etc)
+
+# CI4 writable directories
+/writable/cache/*
+/writable/logs/*
+/writable/session/*
+/writable/debugbar/*
+!writable/cache/.gitkeep
+!writable/logs/.gitkeep
+!writable/session/.gitkeep
+!writable/debugbar/.gitkeep
+
+# Output / export
+/output/
 .idea/
 *.iml
 

@@ -3,7 +3,7 @@
         <h1 class="page-title">Jenis Layanan</h1>
         <p class="page-subtitle">Kelola semua tipe layanan laundry yang tersedia.</p>
     </div>
-    <a href="/laundry-in/layanan/create" class="btn btn-primary">
+    <a href="/layanan/create" class="btn btn-primary">
         <i class="ph-bold ph-plus-circle"></i>
         Tambah Layanan
     </a>
@@ -20,7 +20,7 @@
                 <i class="ph-bold ph-note-blank"></i>
                 <div class="empty-state-title">Tidak Ada Layanan</div>
                 <p class="empty-state-text">Belum ada layanan yang ditambahkan.</p>
-                <a href="/laundry-in/layanan/create" class="btn btn-primary">
+                <a href="/layanan/create" class="btn btn-primary">
                     <i class="ph-bold ph-plus-circle"></i>
                     Tambah Layanan Pertama
                 </a>
@@ -57,7 +57,20 @@
                             </td>
                             <td>
                                 <div class="table-actions">
-                                    <a href="/laundry-in/layanan/edit/<?= $item['id'] ?>"
+                                    <form method="POST"
+                                        action="/cart/add/<?= (int)$item['id'] ?>"
+                                        style="display:inline;">
+                                        <input type="hidden" name="csrf_token"
+                                            value="<?= htmlspecialchars(generate_csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button type="submit"
+                                            class="btn btn-success btn-sm"
+                                            onclick="this.disabled=true; this.form.submit();"
+                                            title="Tambah ke Keranjang">
+                                            <i class="ph-bold ph-shopping-cart-simple"></i>
+                                        </button>
+                                    </form>
+                                    <a href="/layanan/edit/<?= $item['id'] ?>"
                                         class="btn btn-ghost btn-sm"
                                         title="Edit layanan">
                                         <i class="ph-bold ph-pencil-simple"></i>
@@ -66,8 +79,8 @@
                                         class="btn btn-ghost btn-sm"
                                         style="color: var(--color-danger);"
                                         data-delete-trigger
-                                        data-service-name="<?= htmlspecialchars($item['nama_layanan']) ?>"
-                                        data-form-action="/laundry-in/layanan/delete/<?= $item['id'] ?>"
+                                        data-item-name="<?= htmlspecialchars($item['nama_layanan']) ?>"
+                                        data-form-action="/layanan/delete/<?= $item['id'] ?>"
                                         title="Hapus layanan">
                                         <i class="ph-bold ph-trash"></i>
                                     </button>

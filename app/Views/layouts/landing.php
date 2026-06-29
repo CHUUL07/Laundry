@@ -28,12 +28,12 @@ $activeNav  = $activeNav ?? 'beranda';
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
 
     <!-- Laundry-IN CSS -->
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/variables.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/reset.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/layout.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/components.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/utilities.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/landing.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/variables.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/reset.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/layout.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/components.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/utilities.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/landing.css') ?>">
 </head>
 
 <body>
@@ -42,7 +42,7 @@ $activeNav  = $activeNav ?? 'beranda';
     <header class="landing-header" id="landing-header">
         <div class="landing-header-inner">
             <div class="landing-header-left">
-                <a href="/laundry-in/" class="landing-logo">
+                <a href="/" class="landing-logo">
                     <div class="landing-logo-icon">
                         <i class="ph-bold ph-washing-machine"></i>
                     </div>
@@ -52,18 +52,43 @@ $activeNav  = $activeNav ?? 'beranda';
 
             <!-- Desktop Nav -->
             <nav class="landing-nav" id="landing-nav">
-                <a href="/laundry-in/#hero" class="landing-nav-link active">Beranda</a>
-                <a href="/laundry-in/#layanan" class="landing-nav-link">Layanan</a>
-                <a href="/laundry-in/#tentang" class="landing-nav-link">Tentang</a>
+                <a href="/#hero" class="landing-nav-link active">Beranda</a>
+                <a href="/#layanan" class="landing-nav-link">Layanan</a>
+                <a href="/#tentang" class="landing-nav-link">Tentang</a>
             </nav>
 
             <div class="landing-header-right">
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php
+                    require_once __DIR__ . '/../../Libraries/Cart.php';
+                    $cartInst = new Cart();
+                    $cartCount = $cartInst->count();
+                    ?>
+                    <a href="/cart" class="landing-header-cart" title="Keranjang Belanja">
+                        <i class="ph-bold ph-shopping-cart"></i>
+                        <?php if ($cartCount > 0): ?>
+                            <span class="badge-counter"><?= $cartCount ?></span>
+                        <?php endif; ?>
+                    </a>
+                    <a href="/keluar" class="btn btn-ghost btn-sm" title="Keluar">
+                        <i class="ph-bold ph-sign-out"></i>
+                    </a>
+                <?php else: ?>
+                    <a href="/masuk" class="btn btn-ghost btn-sm">
+                        <i class="ph-bold ph-sign-in"></i>
+                        Masuk
+                    </a>
+                    <a href="/daftar" class="btn btn-primary btn-sm">
+                        <i class="ph-bold ph-user-plus"></i>
+                        Daftar
+                    </a>
+                <?php endif; ?>
                 <button class="theme-toggle landing-theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                     <i class="ph-bold ph-sun hidden" id="icon-sun"></i>
                     <i class="ph-bold ph-moon" id="icon-moon"></i>
                 </button>
-                <a href="/laundry-in/login" class="btn btn-primary btn-sm landing-admin-btn">
-                    <i class="ph-bold ph-sign-in"></i>
+                <a href="/login" class="btn btn-primary btn-sm landing-admin-btn">
+                    <i class="ph-bold ph-shield-check"></i>
                     Admin
                 </a>
                 <button class="landing-hamburger" id="landing-hamburger" aria-label="Toggle menu">
@@ -74,13 +99,38 @@ $activeNav  = $activeNav ?? 'beranda';
 
         <!-- Mobile Nav Drawer -->
         <div class="landing-mobile-nav" id="landing-mobile-nav">
-            <a href="/laundry-in/#hero" class="landing-nav-link">Beranda</a>
-            <a href="/laundry-in/#layanan" class="landing-nav-link">Layanan</a>
-            <a href="/laundry-in/#tentang" class="landing-nav-link">Tentang</a>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <div class="landing-mobile-user">
+                    <i class="ph-bold ph-user-circle"></i>
+                    <span><?= htmlspecialchars($_SESSION['user_nama'] ?? 'User') ?></span>
+                </div>
+                <a href="/cart" class="landing-nav-link">
+                    <i class="ph-bold ph-shopping-cart"></i>
+                    Keranjang
+                </a>
+                <div class="landing-mobile-divider"></div>
+                <a href="/keluar" class="landing-nav-link landing-nav-login">
+                    <i class="ph-bold ph-sign-out"></i>
+                    Keluar
+                </a>
+            <?php else: ?>
+                <a href="/masuk" class="landing-nav-link">
+                    <i class="ph-bold ph-sign-in"></i>
+                    Masuk
+                </a>
+                <a href="/daftar" class="landing-nav-link">
+                    <i class="ph-bold ph-user-plus"></i>
+                    Daftar
+                </a>
+            <?php endif; ?>
             <div class="landing-mobile-divider"></div>
-            <a href="/laundry-in/login" class="landing-nav-link landing-nav-login">
-                <i class="ph-bold ph-sign-in"></i>
-                Masuk Admin
+            <a href="/#hero" class="landing-nav-link">Beranda</a>
+            <a href="/#layanan" class="landing-nav-link">Layanan</a>
+            <a href="/#tentang" class="landing-nav-link">Tentang</a>
+            <div class="landing-mobile-divider"></div>
+            <a href="/login" class="landing-nav-link landing-nav-login">
+                <i class="ph-bold ph-shield-check"></i>
+                Admin
             </a>
         </div>
     </header>
@@ -97,7 +147,7 @@ $activeNav  = $activeNav ?? 'beranda';
                     secara digital — cepat, rapi, dan profesional.
                 </p>
                 <div class="landing-hero-actions">
-                    <a href="/laundry-in/#layanan" class="btn btn-primary btn-lg">
+                    <a href="/#layanan" class="btn btn-primary btn-lg">
                         <i class="ph-bold ph-list-bullets"></i>
                         Lihat Layanan
                     </a>
@@ -105,7 +155,7 @@ $activeNav  = $activeNav ?? 'beranda';
             </div>
             <div class="landing-hero-visual">
                 <div class="landing-hero-illustration">
-                    <img src="/laundry-in/public/assets/images/Gambar-Laundry.png" alt="Laundry Illustration" class="landing-hero-img">
+                    <img src="<?= base_url('assets/images/Gambar-Laundry.png') ?>" alt="Laundry Illustration" class="landing-hero-img">
                 </div>
             </div>
         </div>
@@ -201,13 +251,13 @@ $activeNav  = $activeNav ?? 'beranda';
             </div>
             <div class="landing-footer-links">
                 <h4>Navigasi</h4>
-                <a href="/laundry-in/#hero">Beranda</a>
-                <a href="/laundry-in/#layanan">Layanan</a>
-                <a href="/laundry-in/#tentang">Tentang</a>
+                <a href="/#hero">Beranda</a>
+                <a href="/#layanan">Layanan</a>
+                <a href="/#tentang">Tentang</a>
             </div>
             <div class="landing-footer-links">
                 <h4>Akses</h4>
-                <a href="/laundry-in/login">Masuk Admin</a>
+                <a href="/login">Masuk Admin</a>
             </div>
         </div>
         <div class="landing-footer-bottom">
@@ -216,8 +266,8 @@ $activeNav  = $activeNav ?? 'beranda';
     </footer>
 
     <!-- JavaScript -->
-    <script src="/laundry-in/public/assets/js/landing.js"></script>
-    <script src="/laundry-in/public/assets/js/theme.js"></script>
+    <script src="<?= base_url('assets/js/landing.js') ?>"></script>
+    <script src="<?= base_url('assets/js/theme.js') ?>"></script>
 
 </body>
 

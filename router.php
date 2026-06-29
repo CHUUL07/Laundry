@@ -2,25 +2,25 @@
 
 /**
  * Development server router for PHP built-in server.
- * Mimics .htaccess rewrite rules.
+ * Routes static assets from root, then forwards to CI4 public/index.php.
  */
 $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
-// Strip /laundry-in prefix to get relative path within project
-$relativePath = preg_replace('#^/laundry-in#', '', $uri);
-
-// Handle static files (CSS, JS, etc.)
-if (preg_match('#^/public/#', $relativePath)) {
-    $filePath = __DIR__ . $relativePath;
+// Handle static files from root assets/ directory
+if (preg_match('#^/assets/#', $uri)) {
+    $filePath = __DIR__ . $uri;
     if (file_exists($filePath)) {
-        // Set proper content type
         $ext = pathinfo($filePath, PATHINFO_EXTENSION);
         $mimeTypes = [
-            'css' => 'text/css',
-            'js'  => 'application/javascript',
-            'png' => 'image/png',
-            'jpg' => 'image/jpeg',
-            'svg' => 'image/svg+xml',
+            'css'  => 'text/css',
+            'js'   => 'application/javascript',
+            'png'  => 'image/png',
+            'jpg'  => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'gif'  => 'image/gif',
+            'svg'  => 'image/svg+xml',
+            'webp' => 'image/webp',
+            'woff' => 'font/woff',
             'woff2' => 'font/woff2',
         ];
         if (isset($mimeTypes[$ext])) {
@@ -31,6 +31,5 @@ if (preg_match('#^/public/#', $relativePath)) {
     }
 }
 
-// Route everything else through index.php
-$_GET['url'] = ltrim($relativePath, '/');
-include __DIR__ . '/index.php';
+// Route everything else through CI4 entry point
+include __DIR__ . '/public/index.php';

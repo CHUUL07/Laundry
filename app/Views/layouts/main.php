@@ -1,6 +1,6 @@
 <?php
 // $pageTitle — set by each view before including layout
-// $activePage — 'dashboard', 'layanan', 'arsip'
+// $activePage — 'dashboard', 'layanan', 'pelanggan', 'arsip'
 $pageTitle   = $pageTitle ?? 'Dashboard';
 $activePage  = $activePage ?? 'dashboard';
 $adminUser   = $_SESSION['admin_username'] ?? 'Admin';
@@ -31,11 +31,11 @@ $adminUser   = $_SESSION['admin_username'] ?? 'Admin';
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
 
     <!-- Laundry-IN CSS -->
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/variables.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/reset.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/layout.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/components.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/utilities.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/variables.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/reset.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/layout.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/components.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/utilities.css') ?>">
 </head>
 
 <body>
@@ -62,21 +62,38 @@ $adminUser   = $_SESSION['admin_username'] ?? 'Admin';
             <nav class="sidebar-nav">
                 <div class="sidebar-section-label">Menu Utama</div>
 
-                <a href="/laundry-in/dashboard"
+                <a href="/dashboard"
                     class="sidebar-nav-item <?= $activePage === 'dashboard' ? 'active' : '' ?>">
                     <i class="ph-bold ph-house"></i>
                     Dashboard
                 </a>
 
-                <a href="/laundry-in/layanan"
+                <a href="/layanan"
                     class="sidebar-nav-item <?= $activePage === 'layanan' ? 'active' : '' ?>">
                     <i class="ph-bold ph-list-bullets"></i>
                     Jenis Layanan
                 </a>
-
+                <a href="/pelanggan"
+                    class="sidebar-nav-item <?= $activePage === 'pelanggan' ? 'active' : '' ?>">
+                    <i class="ph-bold ph-users"></i>
+                    Pelanggan
+                </a>
+                <?php
+                require_once __DIR__ . '/../../Models/PesananModel.php';
+                $pesananModel = new PesananModel();
+                $pesananBaru = $pesananModel->countNew();
+                ?>
+                <a href="/pesanan"
+                    class="sidebar-nav-item <?= $activePage === 'pesanan' ? 'active' : '' ?>">
+                    <i class="ph-bold ph-clipboard-text"></i>
+                    <span>Pesanan</span>
+                    <?php if ($pesananBaru > 0): ?>
+                        <span class="badge-counter"><?= $pesananBaru ?></span>
+                    <?php endif; ?>
+                </a>
                 <div class="sidebar-section-label">Data</div>
 
-                <a href="/laundry-in/layanan/archive"
+                <a href="/layanan/archive"
                     class="sidebar-nav-item <?= $activePage === 'arsip' ? 'active' : '' ?>">
                     <i class="ph-bold ph-archive"></i>
                     Arsip Terhapus
@@ -94,7 +111,7 @@ $adminUser   = $_SESSION['admin_username'] ?? 'Admin';
                         <div class="sidebar-user-role">Administrator</div>
                     </div>
                 </div>
-                <a href="/laundry-in/logout" class="sidebar-logout">
+                <a href="/logout" class="sidebar-logout">
                     <i class="ph-bold ph-sign-out"></i>
                     Keluar
                 </a>
@@ -111,7 +128,7 @@ $adminUser   = $_SESSION['admin_username'] ?? 'Admin';
                         <i class="ph-bold ph-list" style="font-size:1.3rem;"></i>
                     </button>
                     <nav class="topbar-breadcrumb" aria-label="Breadcrumb">
-                        <a href="/laundry-in/dashboard">Beranda</a>
+                        <a href="/dashboard">Beranda</a>
                         <?php if ($activePage !== 'dashboard'): ?>
                             <i class="ph-bold ph-caret-right" style="font-size:0.75rem;"></i>
                             <span class="current"><?= htmlspecialchars($pageTitle) ?></span>
@@ -160,16 +177,16 @@ $adminUser   = $_SESSION['admin_username'] ?? 'Admin';
             <div class="modal-icon">
                 <i class="ph-bold ph-trash"></i>
             </div>
-            <h2 class="modal-title" id="modal-title">Hapus Layanan?</h2>
+            <h2 class="modal-title" id="modal-title">Hapus Data?</h2>
             <p class="modal-body">
-                Layanan "<strong id="modal-service-name"></strong>" akan dipindahkan ke arsip.
+                <strong id="modal-item-name"></strong> akan dipindahkan ke arsip.
                 Data tidak akan hilang dan dapat dipulihkan kapan saja.
             </p>
             <div class="modal-actions">
                 <button class="btn btn-secondary" id="modal-cancel">Batal</button>
                 <form id="delete-form" method="POST">
-                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
-                    <button type="submit" class="btn btn-danger" id="modal-confirm">
+                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(generate_csrf_token()) ?>">
+                    <button type="submit" class="btn btn-danger" id="modal-confirm" onclick="this.disabled=true; this.form.submit();">
                         <i class="ph-bold ph-trash"></i>
                         Ya, Hapus
                     </button>
@@ -179,9 +196,9 @@ $adminUser   = $_SESSION['admin_username'] ?? 'Admin';
     </div>
 
     <!-- JavaScript -->
-    <script src="/laundry-in/public/assets/js/theme.js"></script>
-    <script src="/laundry-in/public/assets/js/sidebar.js"></script>
-    <script src="/laundry-in/public/assets/js/modal.js"></script>
+    <script src="<?= base_url('assets/js/theme.js') ?>"></script>
+    <script src="<?= base_url('assets/js/sidebar.js') ?>"></script>
+    <script src="<?= base_url('assets/js/modal.js') ?>"></script>
 
 </body>
 

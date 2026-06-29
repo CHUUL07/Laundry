@@ -244,6 +244,23 @@
   color: var(--color-warning);
 }
 
+/* ---- Cart Badge Counter (sidebar) ---- */
+.badge-counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: var(--color-danger, #ef4444);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-left: auto;
+}
+
 /* ---- Data Table ---- */
 .table-wrapper {
   overflow-x: auto;

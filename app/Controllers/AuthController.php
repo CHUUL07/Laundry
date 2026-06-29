@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../Models/AdminModel.php';
+require_once __DIR__ . '/../Helpers/auth.php';
 
 class AuthController
 {
@@ -18,7 +19,7 @@ class AuthController
     {
         // Already logged in? Redirect to dashboard
         if (isset($_SESSION['admin_id'])) {
-            header('Location: /laundry-in/dashboard');
+            header('Location: /dashboard');
             exit;
         }
 
@@ -40,7 +41,14 @@ class AuthController
     public function processLogin(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: /laundry-in/login');
+            header('Location: /login');
+            exit;
+        }
+
+        // CSRF validation
+        if (!validate_csrf()) {
+            $_SESSION['login_error'] = 'Token CSRF tidak valid. Silakan coba lagi.';
+            header('Location: /login');
             exit;
         }
 
@@ -50,26 +58,39 @@ class AuthController
         // Basic input validation
         if (empty($username) || empty($password)) {
             $_SESSION['login_error'] = 'Username dan password wajib diisi.';
-            header('Location: /laundry-in/login');
+            header('Location: /login');
+            exit;
+        }
+
+        // Rate limiting — cek apakah terlalu banyak percobaan gagal
+        if (!checkLoginRateLimit()) {
+            $_SESSION['login_error'] = 'Terlalu banyak percobaan login. Coba lagi dalam 5 menit.';
+            header('Location: /login');
             exit;
         }
 
         $admin = $this->adminModel->findByUsername($username);
 
         if ($admin && password_verify($password, $admin['password'])) {
+            // Reset login attempts on success
+            resetLoginAttempts();
+
             // Regenerate session ID to prevent fixation attacks
             session_regenerate_id(true);
 
             $_SESSION['admin_id']       = $admin['id'];
             $_SESSION['admin_username'] = $admin['username'];
 
-            header('Location: /laundry-in/dashboard');
+            header('Location: /dashboard');
             exit;
         }
 
+        // Catat percobaan gagal untuk rate limiting
+        recordFailedLoginAttempt();
+
         // Generic error — do not reveal whether username or password was wrong
         $_SESSION['login_error'] = 'Username atau password salah.';
-        header('Location: /laundry-in/login');
+        header('Location: /login');
         exit;
     }
 
@@ -92,7 +113,7 @@ class AuthController
             );
         }
         session_destroy();
-        header('Location: /laundry-in/login');
+        header('Location: /login');
         exit;
     }
 

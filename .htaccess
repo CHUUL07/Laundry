@@ -1,10 +1,12 @@
 Options -Indexes
 RewriteEngine On
 
-# Redirect all requests to index.php (Front Controller)
+# Redirect semua request ke public/index.php (CI4 entry point)
+# Bukan ke index.php di root lagi
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+RewriteRule ^(.*)$ public/index.php/$1 [L]
 
-# Block direct access to app/ directory
+# Block direct access ke app/ directory
 RewriteRule ^app/ - [F,L]
+RewriteRule ^writable/ - [F,L]

@@ -1,5 +1,5 @@
 <div class="auth-card">
-    <a href="/laundry-in/" class="btn btn-ghost btn-sm" style="margin-bottom: var(--space-4);">
+    <a href="/" class="btn btn-ghost btn-sm" style="margin-bottom: var(--space-4);">
         <i class="ph-bold ph-arrow-left"></i>
         Kembali ke Beranda
     </a>
@@ -18,7 +18,9 @@
         </div>
     <?php endif; ?>
 
-    <form method="POST" action="/laundry-in/login" novalidate>
+    <form method="POST" action="/login" novalidate>
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(generate_csrf_token()) ?>">
+
         <div class="form-group">
             <label class="form-label" for="username">Username</label>
             <input
@@ -44,7 +46,7 @@
                 required>
         </div>
 
-        <button type="submit" class="btn btn-primary w-full btn-lg">
+        <button type="submit" class="btn btn-primary w-full btn-lg" onclick="this.disabled=true; this.form.submit();">
             <i class="ph-bold ph-sign-in"></i>
             Masuk
         </button>

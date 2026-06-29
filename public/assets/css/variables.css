@@ -36,17 +36,17 @@
   --color-border: #e5e7eb;
   --color-border-focus: #0d9488;
 
-  /* Sidebar — Light Mode */
-  --sidebar-bg: #ffffff;
-  --sidebar-text: #6b7280;
-  --sidebar-text-hover: #111827;
-  --sidebar-active-bg: rgba(13, 148, 136, 0.08);
-  --sidebar-active-text: #0d9488;
+  /* Sidebar — Always dark in both modes (PRD Section 7.2) */
+  --sidebar-bg: #0d1117;
+  --sidebar-text: #94a3b8;
+  --sidebar-text-hover: #e2e8f0;
+  --sidebar-active-bg: rgba(13, 148, 136, 0.15);
+  --sidebar-active-text: #14b8a6;
   --sidebar-active-bar: #0d9488;
-  --sidebar-border: #e5e7eb;
-  --sidebar-brand-text: #111827;
-  --sidebar-user-text: #111827;
-  --sidebar-hover-bg: rgba(0, 0, 0, 0.04);
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-brand-text: #f1f5f9;
+  --sidebar-user-text: #cbd5e1;
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.05);
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -130,7 +130,7 @@
   --color-border: #2d3247;
   --color-border-focus: #14b8a6;
 
-  /* Sidebar — Dark Mode */
+  /* Sidebar — Dark Mode (same as light mode, always dark per PRD) */
   --sidebar-bg: #0d1117;
   --sidebar-text: #64748b;
   --sidebar-text-hover: #cbd5e1;

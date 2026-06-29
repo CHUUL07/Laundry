@@ -13,12 +13,13 @@
         })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/variables.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/reset.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/components.css">
-    <link rel="stylesheet" href="/laundry-in/public/assets/css/utilities.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/variables.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/reset.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/components.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/utilities.css') ?>">
     <style>
         body {
             display: flex;
@@ -90,7 +91,7 @@
         <?= $content ?? '' ?>
         <div class="auth-footer">Laundry-IN &copy; <?= date('Y') ?> — Sistem Manajemen Laundry</div>
     </div>
-    <script src="/laundry-in/public/assets/js/theme.js"></script>
+    <script src="<?= base_url('assets/js/theme.js') ?>"></script>
 </body>
 
 </html>
